@@ -5,23 +5,23 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import programmerzamannow.spring.core.event.LoginSuccessEvent;
 
+// contoh listener yang mendengarkan event `LoginSuccessEvent` tersebut
+// menggunakan anotasi `@EventListener`.
 @Slf4j
 @Component
 public class UserListener {
+    @EventListener(classes = LoginSuccessEvent.class)
+    public void onLoginSuccessEvent(LoginSuccessEvent event) {
+        log.info("Success login again for user {}", event.getUser());
+    }
 
-  @EventListener(classes = LoginSuccessEvent.class)
-  public void onLoginSuccessEvent(LoginSuccessEvent event){
-    log.info("Success login again for user {}", event.getUser());
-  }
+    @EventListener(classes = LoginSuccessEvent.class)
+    public void onLoginSuccessEvent2(LoginSuccessEvent event) {
+        log.info("Success login again for user {}", event.getUser());
+    }
 
-  @EventListener(classes = LoginSuccessEvent.class)
-  public void onLoginSuccessEvent2(LoginSuccessEvent event){
-    log.info("Success login again for user {}", event.getUser());
-  }
-
-  @EventListener(classes = LoginSuccessEvent.class)
-  public void onLoginSuccessEvent3(LoginSuccessEvent event){
-    log.info("Success login again for user {}", event.getUser());
-  }
-
+    @EventListener(classes = LoginSuccessEvent.class)
+    public void onLoginSuccessEvent3(LoginSuccessEvent event) {
+        log.info("Success login again for user {}", event.getUser());
+    }
 }

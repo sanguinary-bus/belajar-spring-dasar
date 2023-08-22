@@ -7,5 +7,4 @@ import programmerzamannow.spring.core.service.MerchantServiceImpl;
 @Configuration
 @Import(MerchantServiceImpl.class)
 public class InheritanceConfiguration {
-
 }

@@ -6,10 +6,8 @@ import programmerzamannow.spring.core.data.Bar;
 
 @Configuration
 public class BarConfiguration {
-
-  @Bean
-  public Bar bar(){
-    return new Bar();
-  }
-
+    @Bean
+    public Bar bar() {
+        return new Bar();
+    }
 }

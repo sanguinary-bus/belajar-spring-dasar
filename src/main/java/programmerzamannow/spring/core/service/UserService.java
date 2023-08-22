@@ -8,26 +8,27 @@ import programmerzamannow.spring.core.data.User;
 import programmerzamannow.spring.core.event.LoginSuccessEvent;
 import programmerzamannow.spring.core.listener.LoginSuccessListener;
 
+// contoh kelas yang mengirim event `LoginSuccessEvent` menggunakan `ApplicationEventPublisher`.
 @Component
 public class UserService implements ApplicationEventPublisherAware {
+    private ApplicationEventPublisher applicationEventPublisher;
 
-  private ApplicationEventPublisher applicationEventPublisher;
-
-  @Override
-  public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-    this.applicationEventPublisher = applicationEventPublisher;
-  }
-
-  public boolean login(String username, String password){
-    if(isLoginSuccess(username, password)){
-      applicationEventPublisher.publishEvent(new LoginSuccessEvent(new User(username)));
-      return true;
-    }else{
-      return false;
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.applicationEventPublisher = applicationEventPublisher;
     }
-  }
 
-  private boolean isLoginSuccess(String username, String password) {
-    return "eko".equals(username) && "eko".equals(password);
-  }
+    public boolean login(String username, String password) {
+        if (isLoginSuccess(username, password)) {
+            // mengirimkan event `LoginSuccessEvent`
+            applicationEventPublisher.publishEvent(new LoginSuccessEvent(new User(username)));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isLoginSuccess(String username, String password) {
+        return "eko".equals(username) && "eko".equals(password);
+    }
 }

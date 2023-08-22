@@ -6,12 +6,11 @@ import programmerzamannow.spring.core.aware.IdAware;
 
 @Component
 public class Car implements IdAware {
+    @Getter
+    private String id;
 
-  @Getter
-  private String id;
-
-  @Override
-  public void setId(String id) {
-    this.id = id;
-  }
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
 }

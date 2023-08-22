@@ -7,9 +7,9 @@ import programmerzamannow.spring.core.data.MultiFoo;
 
 @Configuration
 @ComponentScan(basePackages = {
-    "programmerzamannow.spring.core.repository",
-    "programmerzamannow.spring.core.service",
-    "programmerzamannow.spring.core.configuration",
+        "programmerzamannow.spring.core.repository",
+        "programmerzamannow.spring.core.service",
+        "programmerzamannow.spring.core.configuration",
 })
 @Import(MultiFoo.class)
 public class ComponentConfiguration {

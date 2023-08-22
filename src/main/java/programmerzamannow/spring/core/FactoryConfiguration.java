@@ -6,7 +6,7 @@ import programmerzamannow.spring.core.factory.PaymentGatewayClientFactoryBean;
 
 @Configuration
 @Import({
-    PaymentGatewayClientFactoryBean.class
+        PaymentGatewayClientFactoryBean.class
 })
 public class FactoryConfiguration {
 }

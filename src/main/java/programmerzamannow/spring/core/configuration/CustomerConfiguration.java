@@ -7,16 +7,14 @@ import programmerzamannow.spring.core.repository.CustomerRepository;
 
 @Configuration
 public class CustomerConfiguration {
+    @Primary
+    @Bean
+    public CustomerRepository normalCustomerRepository() {
+        return new CustomerRepository();
+    }
 
-  @Primary
-  @Bean
-  public CustomerRepository normalCustomerRepository(){
-    return new CustomerRepository();
-  }
-
-  @Bean
-  public CustomerRepository premiumCustomerRepository(){
-    return new CustomerRepository();
-  }
-
+    @Bean
+    public CustomerRepository premiumCustomerRepository() {
+        return new CustomerRepository();
+    }
 }

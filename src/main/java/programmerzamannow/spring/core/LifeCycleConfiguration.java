@@ -7,16 +7,14 @@ import programmerzamannow.spring.core.data.Server;
 
 @Configuration
 public class LifeCycleConfiguration {
+    @Bean
+    public Connection connection() {
+        return new Connection();
+    }
 
-  @Bean
-  public Connection connection(){
-    return new Connection();
-  }
-
-  // @Bean(initMethod = "start", destroyMethod = "stop")
-  @Bean
-  public Server server(){
-    return new Server();
-  }
-
+    // @Bean(initMethod = "start", destroyMethod = "stop")
+    @Bean
+    public Server server() {
+        return new Server();
+    }
 }

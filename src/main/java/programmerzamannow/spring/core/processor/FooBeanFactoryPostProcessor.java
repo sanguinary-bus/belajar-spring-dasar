@@ -10,18 +10,18 @@ import programmerzamannow.spring.core.data.Foo;
 
 @Component
 public class FooBeanFactoryPostProcessor implements BeanDefinitionRegistryPostProcessor {
+    // registrasi bean definition untuk Foo dengan scope singleton.
+    @Override
+    public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
+        GenericBeanDefinition definition = new GenericBeanDefinition();
+        definition.setScope("singleton");
+        definition.setBeanClass(Foo.class);
 
-  @Override
-  public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-    GenericBeanDefinition definition = new GenericBeanDefinition();
-    definition.setScope("singleton");
-    definition.setBeanClass(Foo.class);
+        registry.registerBeanDefinition("foo", definition);
+    }
 
-    registry.registerBeanDefinition("foo", definition);
-  }
-
-  @Override
-  public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-    // nothing
-  }
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        // nothing
+    }
 }

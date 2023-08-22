@@ -11,21 +11,19 @@ import programmerzamannow.spring.core.data.Foo;
 @Slf4j
 @Configuration
 public class DependsOnConfiguration {
+    @Lazy
+    @Bean
+    @DependsOn({
+            "bar"
+    })
+    public Foo foo() {
+        log.info("Create new Foo");
+        return new Foo();
+    }
 
-  @Lazy
-  @Bean
-  @DependsOn({
-      "bar"
-  })
-  public Foo foo(){
-    log.info("Create new Foo");
-    return new Foo();
-  }
-
-  @Bean
-  public Bar bar(){
-    log.info("Create new Bar");
-    return new Bar();
-  }
-
+    @Bean
+    public Bar bar() {
+        log.info("Create new Bar");
+        return new Bar();
+    }
 }

@@ -7,17 +7,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import programmerzamannow.spring.core.data.Foo;
 
 public class WithoutSpringBootTest {
+    private ConfigurableApplicationContext applicationContext;
 
-  private ConfigurableApplicationContext applicationContext;
+    @BeforeEach
+    void setUp() {
+        applicationContext = new AnnotationConfigApplicationContext(FooApplication.class);
+        applicationContext.registerShutdownHook();
+    }
 
-  @BeforeEach
-  void setUp() {
-    applicationContext = new AnnotationConfigApplicationContext(FooApplication.class);
-    applicationContext.registerShutdownHook();
-  }
-
-  @Test
-  void testFoo() {
-    Foo foo = applicationContext.getBean(Foo.class);
-  }
+    @Test
+    void testFoo() {
+        Foo foo = applicationContext.getBean(Foo.class);
+    }
 }

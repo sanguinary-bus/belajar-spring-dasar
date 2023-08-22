@@ -8,12 +8,10 @@ import programmerzamannow.spring.core.data.Foo;
 @Slf4j
 @Configuration
 public class BeanConfiguration {
-
-  @Bean
-  public Foo foo(){
-    Foo foo = new Foo();
-    log.info("Create new foo");
-    return foo;
-  }
-
+    @Bean
+    public Foo foo() {
+        Foo foo = new Foo();
+        log.info("Create new foo");
+        return foo;
+    }
 }
